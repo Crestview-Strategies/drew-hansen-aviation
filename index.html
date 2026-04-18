@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drew Hansen — Aviation & Technology Portfolio</title>
+<meta name="description" content="Drew Hansen, 10-year-old roamschooler. Aviation and technology portfolio: flight training, UAV operations, 3D simulation design, and domain study.">
+<meta property="og:title" content="Drew Hansen — Aviation & Technology Portfolio">
+<meta property="og:description" content="A focused look at what Drew has flown, built, and studied in aviation and technology.">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --fg: #0a0a0a;
+    --muted: #5f5f5f;
+    --bg: #ffffff;
+    --line: #e4e4e4;
+    --soft: #f5f5f5;
+    --navy: #0a1f3d;
+    --navy-soft: rgba(10, 31, 61, 0.18);
+    --accent: #1e3a7a;
+    --accent-bright: #2563eb;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 64px 40px; }
+
+  header { margin-bottom: 72px; }
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center 78%;
+    display: block;
+    margin-bottom: 40px;
+    border: 1px solid var(--line);
+  }
+  .item .media + .media { margin-top: 8px; }
+  .eyebrow {
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4a6c8a;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  header h1 {
+    font-size: 52px;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+  .hero {
+    font-size: 18px;
+    color: #475569;
+    max-width: 72ch;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .hero a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    font-weight: 500;
+  }
+  .hero a:hover { color: var(--accent-bright); border-bottom-color: var(--accent-bright); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .col { padding: 32px 28px; }
+  .col:nth-child(1) { background: #e8edf4; }
+  .col:nth-child(2) { background: #eef2f8; }
+  .col:nth-child(3) { background: #f2f5f9; }
+  .col:not(:first-child) { border-left: 1px solid rgba(10, 31, 61, 0.10); }
+  .col:nth-child(1) h2 { color: #0a1f3d; border-bottom-color: #0a1f3d; }
+  .col:nth-child(2) h2 { color: #1e4d7a; border-bottom-color: #1e4d7a; }
+  .col:nth-child(3) h2 { color: #3d5a7a; border-bottom-color: #3d5a7a; }
+  section.col h2 {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0 0 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+    font-weight: 700;
+  }
+
+  .item { margin-bottom: 36px; }
+  .item .media {
+    background: var(--soft);
+    aspect-ratio: 4/3;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .item .media img,
+  .item .media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .item h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .item-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+  .item p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+  .item p + p { margin-top: 8px; }
+  .item a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    font-weight: 500;
+  }
+  .item a:hover { color: var(--accent-bright); border-bottom-color: var(--accent-bright); }
+
+  .cta {
+    margin-top: 96px;
+    padding: 72px 56px;
+    background: var(--navy);
+    color: #fff;
+  }
+  .cta h2 {
+    font-size: 28px;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+  .cta .lede {
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0 0 28px;
+    max-width: 60ch;
+    font-size: 16px;
+  }
+  .cta .examples {
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 0 32px;
+    max-width: 62ch;
+    font-size: 14px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .cta .email-btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 600;
+    padding: 15px 28px;
+    background: var(--accent-bright);
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .cta .email-btn:hover { background: #1d4ed8; opacity: 1; }
+  .cta .direct {
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .cta .direct a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .cta .direct a:hover { color: #fff; border-bottom-color: #fff; }
+
+  .extras-section {
+    margin-top: 32px;
+    padding: 56px 48px;
+    background: #eef2f8;
+  }
+  .extras-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 18px;
+    letter-spacing: -0.015em;
+  }
+  .extras-section .section-lede {
+    font-size: 15px;
+    color: var(--fg);
+    max-width: 68ch;
+    margin: 0 0 36px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .cards-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .link-card:hover {
+    border-color: var(--navy);
+  }
+  .card-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .card-primary {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+  .card-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .card-cta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .link-card:hover .card-cta { color: var(--accent-bright); }
+  .website-hero {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    margin: 18px 0;
+    background: #b4c3d2;
+    padding: 44px 28px;
+    box-sizing: border-box;
+  }
+  .rs-text {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--navy);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .rs-text strong { font-weight: 700; }
+  .rs-small { font-size: 17px; margin-bottom: 22px; }
+  .rs-large { font-size: 25px; }
+  .rs-ul {
+    position: relative;
+    display: inline-block;
+  }
+  .rs-ul-line {
+    position: absolute;
+    left: -6%;
+    bottom: -12px;
+    width: 112%;
+    height: 14px;
+    color: #fff;
+    pointer-events: none;
+  }
+  .insta-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .insta-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--soft);
+  }
+  .insta-profile-info .card-eyebrow { margin-bottom: 3px; }
+  .insta-profile-info .card-primary { margin-bottom: 0; font-size: 17px; }
+  .insta-bio {
+    font-size: 13px;
+    color: var(--fg);
+    margin-bottom: 18px;
+    line-height: 1.55;
+  }
+  .insta-bio div { margin-bottom: 2px; }
+  .insta-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+    margin-bottom: 18px;
+  }
+  .insta-thumbs img {
+    width: 100%;
+    aspect-ratio: 388/514;
+    object-fit: cover;
+    display: block;
+    background: var(--soft);
+  }
+  .parent-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color 0.15s;
+  }
+  .parent-card:hover { border-color: var(--navy); }
+  .parent-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--soft);
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+  }
+  .parent-info .parent-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+  }
+  .parent-info .parent-role {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .parent-info .card-cta { font-size: 11px; }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 40px 24px; }
+    header { margin-bottom: 48px; }
+    header h1 { font-size: 36px; }
+    .cta { padding: 48px 28px; }
+    .cta h2 { font-size: 22px; }
+    .cards-pair { grid-template-columns: 1fr; }
+    .extras-section { padding: 40px 24px; margin-top: 20px; }
+    .extras-section h2 { font-size: 22px; }
+    .hero { font-size: 16px; }
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+    .col { padding: 32px 24px; }
+    .col:not(:first-child) { border-left: none; }
+    .cta { margin-top: 64px; padding-top: 40px; }
+    footer { margin-top: 56px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img class="hero-image" src="assets/hero.jpg" alt="Drew Hansen">
+    <h1>Drew Hansen</h1>
+    <div class="eyebrow">4th Grade Portfolio &middot; Aviation &amp; Technology</div>
+
+    <!--
+      HERO COPY: two options. Current default is Option B (shorter).
+      To switch, uncomment A and comment out B.
+
+      Option A (evidence-led, denser):
+      <p class="hero">Drew is 10 years old and roamschools with his family. He has logged flight instruction in a Cirrus SR22T, shipped two 3D aviation games built with Claude Code, passed the FAA TRUST exam, and audited a college-level aviation history course. This page is a focused look at his aviation and technology work.</p>
+    -->
+
+    <!-- Option B (short, capability-led) -->
+    <p class="hero">Drew is 10 years old and roamschools.<br>This is his 4th grade work in aviation and technology:<br>What he's flown, built, and studied this year.</p>
+  </header>
+
+  <div class="grid">
+
+    <section class="col">
+      <h2>Aerial Systems</h2>
+
+      <div class="item">
+        <div class="media"><video src="assets/1.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>Pilot Training</h3>
+        <p>Flight School: Logged one flight hour in a Cirrus SR22T and four hours of ground instruction, covering straight-and-level flight, level turns, steep turns, basic avionics, navigation, ground operations, traffic pattern procedures, and pre-flight inspection.</p>
+        <p>Self-Study: Completed Sporty's Private Pilot lessons on introductory flight and landing procedures.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/3a.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <div class="media"><video src="assets/3b.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>RC Aircraft</h3>
+        <p>Independently assembled, disassembled, and piloted a Carbon Cub RC plane.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/4.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>Drone Operations</h3>
+        <p>Flew a range of commercial drones in both controlled lab settings and public environments.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/5.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>Tunnel Flying</h3>
+        <p>Logged seven flights at iFLY Indoor Skydiving, building foundational body flight skills.</p>
+      </div>
+    </section>
+
+    <section class="col">
+      <h2>Software &amp; Simulation</h2>
+
+      <div class="item">
+        <div class="media"><img src="assets/6.png" alt="Dogfight 3D game screenshot"></div>
+        <h3>3D Game Design</h3>
+        <p>Designed and developed two original 3D games using Claude Code, including a multiplayer air combat simulator and an open-world exploration game.</p>
+        <p><a href="https://drew-hansen-design.github.io/drew-hansen-design/dogfight-3d.html" target="_blank" rel="noopener">Play Dogfight 3D</a></p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/7.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>Simulation Design</h3>
+        <p>Created an interactive delta wing aerodynamics simulator with adjustable variables.</p>
+        <p><a href="https://drew-hansen-design.github.io/Aviation-Aerodynamic-Simulator/delta-wing-sim.html" target="_blank" rel="noopener">View Simulator</a></p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/8.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>UAV Programming</h3>
+        <p>Programmed and built five Lego Spike UAVs, self-teaching efficient development through incremental building.</p>
+      </div>
+    </section>
+
+    <section class="col">
+      <h2>Domain Knowledge</h2>
+
+      <div class="item">
+        <div class="media"><img src="assets/9a.jpg" alt="Drew at AER 113 History of Aviation"></div>
+        <div class="media"><img src="assets/9b.jpg" alt="Drew at AER 113 History of Aviation"></div>
+        <h3>Aviation History</h3>
+        <div class="item-eyebrow">College-level course</div>
+        <p>Audited AER 113, History of Aviation, at Guilford Technical Community College, evaluating contributions of pioneers and analyzing the impact of flight on modern society.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><video src="assets/10.mp4" muted autoplay loop playsinline preload="metadata"></video></div>
+        <h3>Control Surfaces</h3>
+        <p>Identified all primary and secondary control surfaces and explained their aerodynamic principles, including effects on lift, drag, and aircraft movement.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><img src="assets/11.jpg" alt="Military aircraft identification" style="object-position: center 25%;"></div>
+        <h3>Military Aircraft Identification</h3>
+        <p>Self-taught identification of modern military aircraft by sight and name.</p>
+      </div>
+
+      <div class="item">
+        <div class="media"><img src="assets/12.jpg" alt="FAA TRUST certificate"></div>
+        <h3>FAA Safety Certified</h3>
+        <p>Passed the FAA Recreational UAS Safety Test (TRUST).</p>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="cta">
+    <h2>Be part of what Drew builds next.</h2>
+    <p class="lede">This is what he's built at age 10.<br><strong>Imagine the future he can build with real access to yours.</strong></p>
+    <p class="examples">Opening a door can be small or big. A walk-through of your facility. Sitting in on a meeting. Helping on a real project for an afternoon. A meet-and-greet. A real mentorship. You pick the shape.</p>
+    <a class="email-btn" href="mailto:laurenevehansen@gmail.com,andrew.k.hansen@gmail.com?subject=Drew%20Hansen%20Aviation%20Portfolio%20inquiry">Open a door for Drew</a>
+    <p class="direct">
+      Or email directly:
+      <a href="mailto:laurenevehansen@gmail.com">laurenevehansen@gmail.com</a>
+      and
+      <a href="mailto:andrew.k.hansen@gmail.com">andrew.k.hansen@gmail.com</a>
+    </p>
+  </section>
+
+  <section class="extras-section">
+    <h2>Roamschool: the learning model.</h2>
+    <p class="section-lede"><strong>Roamschool&trade; is a rebellion.</strong> Curiosity beats conformity. Design beats default. Agency beats assignments. Real learning happens in the real world, on purpose.</p>
+    <div class="cards-pair">
+      <a class="link-card" href="https://instagram.com/roamschool.adventures" target="_blank" rel="noopener">
+        <div class="card-eyebrow">Instagram</div>
+        <div class="card-primary" style="margin-bottom:4px;">Follow the adventure</div>
+        <div class="insta-profile">
+          <img class="insta-avatar" src="assets/insta-profile.jpg" alt="">
+          <div class="insta-profile-info">
+            <div class="card-meta">@roamschool.adventures</div>
+          </div>
+        </div>
+        <div class="insta-bio">
+          <div>&#x2728; Curiosity over conformity.</div>
+          <div>&#x1F308; Wonder over worksheets.</div>
+          <div>&#x1F4A1; Meaning over metrics.</div>
+          <div>&#x1F3EB; Schools are for static systems.</div>
+          <div>&#x1F30D; Roamschool is for real life.</div>
+        </div>
+        <div class="insta-thumbs">
+          <img src="assets/insta-1.jpg" alt="">
+          <img src="assets/insta-2.jpg" alt="">
+          <img src="assets/insta-3.jpg" alt="">
+          <img src="assets/insta-4.jpg" alt="">
+          <img src="assets/insta-5.jpg" alt="">
+          <img src="assets/insta-6.jpg" alt="">
+        </div>
+        <div class="card-cta">Follow &rarr;</div>
+      </a>
+      <a class="link-card website-card" href="https://www.crestviewstrategies.com/roamschool" target="_blank" rel="noopener">
+        <div class="card-eyebrow">Website</div>
+        <div class="card-primary">Explore Roamschool</div>
+        <div class="card-meta">crestviewstrategies.com/roamschool</div>
+        <div class="website-hero">
+          <div class="rs-text">
+            <div class="rs-small">The <strong>best learning</strong> strategy<br>isn't out there.</div>
+            <div class="rs-large">It's the one <strong><span class="rs-ul">you build<svg class="rs-ul-line" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3,8 C20,2 45,10 70,5 S105,3 118,7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></span></strong>.</div>
+          </div>
+        </div>
+        <div class="card-cta">Visit &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="extras-section">
+    <h2>Meet Drew's co-pilots.</h2>
+    <div class="cards-pair">
+      <a class="parent-card" href="https://www.linkedin.com/in/laurenhansenarmendariz/" target="_blank" rel="noopener">
+        <img class="parent-photo" src="assets/lauren-headshot.jpg" alt="Lauren Hansen&#8209;Armendariz">
+        <div class="parent-info">
+          <div class="parent-name">Lauren Hansen&#8209;Armendariz</div>
+          <div class="parent-role">Founder, Crestview Strategies<br>Former Army innovation strategist<br>Entrepreneur</div>
+          <div class="card-cta">LinkedIn &rarr;</div>
+        </div>
+      </a>
+      <a class="parent-card" href="https://www.linkedin.com/in/akhansen1/" target="_blank" rel="noopener">
+        <img class="parent-photo" src="assets/andrew-headshot.jpg" alt="Andrew Hansen">
+        <div class="parent-info">
+          <div class="parent-name">Andrew Hansen</div>
+          <div class="parent-role">Deployment Strategist, Palantir<br>Chief Technology Officer, Military Intelligence Readiness Command<br>Intrapreneur</div>
+          <div class="card-cta">LinkedIn &rarr;</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Hansen Family &middot; Roamschool&trade; 4th grade portfolio, aviation and technology scope.
+  </footer>
+
+</div>
+
+<script>
+  (function() {
+    const videos = document.querySelectorAll('video');
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(v => v.play().catch(() => {}));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(v => io.observe(v));
+  })();
+</script>
+</body>
+</html>
